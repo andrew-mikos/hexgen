@@ -113,8 +113,7 @@ def draw_grid(hex_grid):
     HexGridDraw(hex_grid, color_temperature_end_year, "map_temp_end_year.bmp", rivers=False, show_coasts=True)
     HexGridDraw(hex_grid, color_temperature_mid_year, "map_temp_mid_year.bmp", rivers=False, show_coasts=True)
     HexGridDraw(hex_grid, color_biome, "map_biome.bmp", rivers=False)
-    # HexGridDraw(hex_grid, color_territories, "map_territories.bmp", rivers=False,
-    #             show_coasts=True, borders=True)
+    HexGridDraw(hex_grid, color_territories, "map_territories.bmp", rivers=False, show_coasts=True, borders=True)
     HexGridDraw(hex_grid, color_satellite, "map_satellite.bmp")
     # HexGridDraw(hex_grid, color_resources, "map_resources.bmp")
     # HexGridDraw(hex_grid, color_zone, "map_zone.bmp", text_func=key_zone, rivers=False, show_coasts=False)

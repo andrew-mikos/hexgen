@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(1500)
+sys.setrecursionlimit(3500)
 import random
 
 from hexgen.hex import Hex
@@ -44,7 +44,9 @@ class Territory:
 
     @property
     def avg_temp(self):
-        return round(sum([h.temperature for h in self.members]) / self.size, 2)
+        end = sum([h.temperature[0] for h in self.members]) / self.size
+        mid = sum([h.temperature[1] for h in self.members]) / self.size
+        return round((end + mid) / 2, 2)
 
     @property
     def avg_moisture(self):
