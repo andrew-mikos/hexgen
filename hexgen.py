@@ -4,14 +4,14 @@ from hexgen.enums import MapType
 options = {
     "map_type": MapType.terran,
     "surface_pressure": 1013.25,
-    "axial_tilt": 23,
+    "axial_tilt": 45,
     "size": 30,
-    "base_temp": -19.50,
+    "base_temp": -5.50,
     "avg_temp": 15,
     "sea_percent": 20,
     "hydrosphere": True,
-    "num_rivers": 125,
-    "num_territories": 2
+    "num_rivers": 75,
+    "num_territories": 3
 }
 
 gen = generate(options, image=True)
