@@ -104,10 +104,10 @@ def draw_grid(hex_grid):
                 return g.color
         return (0, 0, 255)
 
-    # HexGridDraw(hex_grid, color_features, "map_features.bmp", show_coasts=True, rivers=False)
-    # HexGridDraw(hex_grid, color_heightmap, "map_height.bmp",   rivers=False, show_coasts=True)
-    # HexGridDraw(hex_grid, color_terrain, "map_terrain.bmp",    rivers=True, show_coasts=True)
-    # HexGridDraw(hex_grid, color_hex_type, "map_hex_types.bmp", rivers=True, show_coasts=True)
+    HexGridDraw(hex_grid, color_features, "map_features.bmp", show_coasts=True, rivers=False)
+    HexGridDraw(hex_grid, color_heightmap, "map_height.bmp",   rivers=False, show_coasts=True)
+    HexGridDraw(hex_grid, color_terrain, "map_terrain.bmp",    rivers=True, show_coasts=True)
+    HexGridDraw(hex_grid, color_hex_type, "map_hex_types.bmp", rivers=True, show_coasts=True)
     HexGridDraw(hex_grid, color_geoforms, "map_geoforms.bmp", rivers=False, show_coasts=True)
     HexGridDraw(hex_grid, color_rivers, "map_rivers.bmp", rivers=True, show_coasts=True)
     HexGridDraw(hex_grid, color_temperature_end_year, "map_temp_end_year.bmp", rivers=False, show_coasts=True)
@@ -115,13 +115,13 @@ def draw_grid(hex_grid):
     HexGridDraw(hex_grid, color_biome, "map_biome.bmp", rivers=False)
     HexGridDraw(hex_grid, color_territories, "map_territories.bmp", rivers=False, show_coasts=True, borders=True)
     HexGridDraw(hex_grid, color_satellite, "map_satellite.bmp")
-    # HexGridDraw(hex_grid, color_resources, "map_resources.bmp")
-    # HexGridDraw(hex_grid, color_zone, "map_zone.bmp", text_func=key_zone, rivers=False, show_coasts=False)
-    # HexGridDraw(hex_grid, color_zone, "map_latitude.bmp", text_func=hex_latitude, rivers=False, show_coasts=False)
-    # HexGridDraw(hex_grid, color_pressure_end_year, "map_pressure_end_year.bmp", rivers=False, show_coasts=True)
-    # HexGridDraw(hex_grid, color_pressure_mid_year, "map_pressure_mid_year.bmp", rivers=False, show_coasts=True)
-    # HexGridDraw(hex_grid, color_wind_end_year, "map_wind_end_year.bmp", text_func=wind_display_end_year, rivers=False, show_coasts=True)
-    # HexGridDraw(hex_grid, color_wind_mid_year, "map_wind_mid_year.bmp", text_func=wind_display_mid_year, rivers=False, show_coasts=True)
+    HexGridDraw(hex_grid, color_resources, "map_resources.bmp")
+    #HexGridDraw(hex_grid, color_zone, "map_zone.bmp",  rivers=False, show_coasts=False)
+    #HexGridDraw(hex_grid, color_zone, "map_latitude.bmp",  rivers=False, show_coasts=False)
+    #HexGridDraw(hex_grid, color_pressure_end_year, "map_pressure_end_year.bmp", rivers=False, show_coasts=True)
+    #HexGridDraw(hex_grid, color_pressure_mid_year, "map_pressure_mid_year.bmp", rivers=False, show_coasts=True)
+    #HexGridDraw(hex_grid, color_wind_end_year, "map_wind_end_year.bmp",  rivers=False, show_coasts=True)
+    #HexGridDraw(hex_grid, color_wind_mid_year, "map_wind_mid_year.bmp",  rivers=False, show_coasts=True)
 
     # report on territories
     for t in hex_grid.territories:

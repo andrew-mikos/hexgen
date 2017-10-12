@@ -119,7 +119,7 @@ class HexResourceRating(SuperEnum):
 
 
 class HexResourceType(SuperEnum):
-    __keys__ = ['id', 'rarity', 'title', 'material', 'yield', 'color']
+    __keys__ = ['id', 'rarity', 'title', 'yield', 'material', 'color']
 
     iron_vein =      (1, 15, "Iron Vein",      1000, 'commonmetals', (100, 0, 0))
     copper_vein =    (2, 15, "Copper Vein",    1000, 'commonmetals', (0, 100, 0))

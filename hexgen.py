@@ -6,12 +6,12 @@ options = {
     "surface_pressure": 1000.25,
     "axial_tilt": 45,
     "size": 60,
-    "base_temp": -5.50,
-    "avg_temp": 15,
+    "base_temp": 0,
+    "avg_temp": 25,
     "sea_percent": 40,
     "hydrosphere": True,
     "num_rivers": 95,
-    "num_territories": 0
+    "num_territories": 4
 }
 
 gen = generate(options, image=True)
