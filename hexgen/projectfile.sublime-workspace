@@ -60,55 +60,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/avonc/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/ImageFile.py",
-			"settings":
-			{
-				"buffer_size": 16101,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/avonc/Documents/DND/hexgen/setup.py",
-			"settings":
-			{
-				"buffer_size": 107,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 51 files for \"file\"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\.gitignore:\n    1: # Byte-compiled / optimized / DLL files\n    2  __pycache__/\n    3  *.py[cod]\n    .\n   25  \n   26  # PyInstaller\n   27: #  Usually these files are written by a python script from a template\n   28  #  before PyInstaller builds the exe, so as to inject date/other infos into it.\n   29  *.manifest\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\LICENSE:\n  139  programs which are used unmodified in performing those activities but\n  140  which are not part of the work.  For example, Corresponding Source\n  141: includes interface definition files associated with source files for\n  142  the work, and the source code for shared libraries and dynamically\n  143  linked subprograms that the work is specifically designed to require,\n  ...\n  397  \n  398    If you add terms to a covered work in accord with this section, you\n  399: must place, in the relevant source files, a statement of the\n  400: additional terms that apply to those files, or a notice indicating\n  401  where to find the applicable terms.\n  402  \n  ...\n  628  \n  629    To do so, attach the following notices to the program.  It is safest\n  630: to attach them to the start of each source file to most effectively\n  631: state the exclusion of warranty; and each file should have at least\n  632  the \"copyright\" line and a pointer to where the full notice is found.\n  633  \n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\README.md:\n   22      pip install -r requirements.txt\n   23  \n   24: Tip: Installing Pillow through pip requires the python header files. You can install those on Debian/Ubuntu with `sudo apt-get install python3-dev`.\n   25  \n   26  To test your installation, run the unit tests:\n   ..\n   33  \n   34  ### Export types\n   35: The primary export of Hexgen is a data structure that represents the world map. It can also export a bunch of png files that show various features on the map.\n   36  \n   37  One interesting thing it can do is take all the data about a hexagon and determine its true color. As exported as an image, the entire grid taken as a whole can be thought of as a satellite image.\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\bin\\parse.js:\n    2  var fs = require('fs');\n    3  \n    4: var fileName = 'export.json';\n    5: var fd = fs.openSync(fileName, 'r');\n    6: var readStream = fs.createReadStream(fileName);\n    7: var fileSize = fs.fstatSync(fd)['size'];\n    8: console.log('File size: ', fileSize);\n    9  \n   10  var place = 0;\n   ..\n   12  readStream\n   13      .on('data', function (chunk) {\n   14:         console.log(Math.round(place / fileSize * 100) / 100 + '%');\n   15          place += chunk.length;\n   16      })\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\draw.py:\n    9      \"\"\"\n   10  \n   11:     def __init__(self, grid, color_func, file_name, rivers=True,\n   12                   numbers=False, show_coasts=False, borders=False, text_func=None):\n   13          self.image = Image.new(\"RGB\", (int(HEX_RECT_WIDTH * (grid.hex_grid.size + 0.6)),\n   ..\n   22          self.borders = borders\n   23  \n   24:         with Timer(\"Making {}\".format(file_name), True):\n   25              for y in range(grid.hex_grid.size):\n   26                  for x in range(grid.hex_grid.size):\n   ..\n   63                              elif s is HexSide.north_west:\n   64                                  self.draw.line([pointer_5, origin], river_blue, width=3)\n   65:             self.image.save('bin/' + file_name)\n   66  \n   67      def draw_hex_edge(self, x, y, side, width=3, color=(0, 0, 0)):\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\mapgen.py:\n  924          return seg\n  925  \n  926:     def export(self, filename):\n  927:         \"\"\" Export the map data as a JSON file \"\"\"\n  928          with Timer(\"Compiling data into dictionary\", self.debug):\n  929              params = copy.copy(self.params)\n  ...\n  989              for geoform in self.geoforms:\n  990                  data['geoforms'].append(geoform.to_dict())\n  991:         with open(filename, 'w') as outfile:\n  992:             with Timer(\"Writing data to JSON file\", self.debug):\n  993:                 json.dump(data, outfile)\n  994          return data\n  995  \n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\draw.py:\n    9      \"\"\"\n   10  \n   11:     def __init__(self, grid, color_func, file_name, rivers=True,\n   12                   numbers=False, show_coasts=False, borders=False, text_func=None):\n   13          self.image = Image.new(\"RGB\", (int(HEX_RECT_WIDTH * (grid.hex_grid.size + 0.6)),\n   ..\n   22          self.borders = borders\n   23  \n   24:         with Timer(\"Making {}\".format(file_name), True):\n   25              for y in range(grid.hex_grid.size):\n   26                  for x in range(grid.hex_grid.size):\n   ..\n   63                              elif s is HexSide.north_west:\n   64                                  self.draw.line([pointer_5, origin], river_blue, width=3)\n   65:             self.image.save('bin/' + file_name)\n   66  \n   67      def draw_hex_edge(self, x, y, side, width=3, color=(0, 0, 0)):\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\mapgen.py:\n  924          return seg\n  925  \n  926:     def export(self, filename):\n  927:         \"\"\" Export the map data as a JSON file \"\"\"\n  928          with Timer(\"Compiling data into dictionary\", self.debug):\n  929              params = copy.copy(self.params)\n  ...\n  989              for geoform in self.geoforms:\n  990                  data['geoforms'].append(geoform.to_dict())\n  991:         with open(filename, 'w') as outfile:\n  992:             with Timer(\"Writing data to JSON file\", self.debug):\n  993:                 json.dump(data, outfile)\n  994          return data\n  995  \n\n35 matches across 8 files\n\n\nSearching 51 files for \"export\"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\.gitignore:\n   60  .DS_Store\n   61  bin/map_*.png\n   62: bin/export*.json\n   63  \n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\README.md:\n   32  ## How to use\n   33  \n   34: ### Export types\n   35: The primary export of Hexgen is a data structure that represents the world map. It can also export a bunch of png files that show various features on the map.\n   36  \n   37: One interesting thing it can do is take all the data about a hexagon and determine its true color. As exported as an image, the entire grid taken as a whole can be thought of as a satellite image.\n   38  \n   39  ### Hexagon types:\n   ..\n   77      - merge_small (bool): if True, small territories will be merged with their neighbors\n   78  \n   79: - Exporting:\n   80:     - export_type (string, one of \"png\", \"json\")\n   81:     - png export:\n   82          - draw_borders: (bool): Draw borders between territories and on coastlines\n   83  \n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\bin\\example.py:\n   16  \n   17  gen = generate(options, image=True)\n   18: # gen.export('bin/export3.json')\n   19  \n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\bin\\parse.js:\n    2  var fs = require('fs');\n    3  \n    4: var fileName = 'export.json';\n    5  var fd = fs.openSync(fileName, 'r');\n    6  var readStream = fs.createReadStream(fileName);\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\mapgen.py:\n  924          return seg\n  925  \n  926:     def export(self, filename):\n  927:         \"\"\" Export the map data as a JSON file \"\"\"\n  928          with Timer(\"Compiling data into dictionary\", self.debug):\n  929              params = copy.copy(self.params)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\mapgen.py:\n  924          return seg\n  925  \n  926:     def export(self, filename):\n  927:         \"\"\" Export the map data as a JSON file \"\"\"\n  928          with Timer(\"Compiling data into dictionary\", self.debug):\n  929              params = copy.copy(self.params)\n\n15 matches across 6 files\n\n\nSearching 53 files for \"_idat\"\n\n0 matches\n\nSearching 53 files for \"making map_geoforms\"\n\n0 matches\n\nSearching 53 files for \"making \"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\LICENSE:\n   83  \n   84    To \"modify\" a work means to copy from or adapt all or part of the work\n   85: in a fashion requiring copyright permission, other than the making of an\n   86  exact copy.  The resulting work is called a \"modified version\" of the\n   87  earlier work or a work \"based on\" the earlier work.\n   ..\n   94  infringement under applicable copyright law, except executing it on a\n   95  computer or modifying a private copy.  Propagation includes copying,\n   96: distribution (with or without modification), making available to the\n   97  public, and in some countries other activities as well.\n   98  \n   ..\n  113  \n  114    The \"source code\" for a work means the preferred form of the work\n  115: for making modifications to it.  \"Object code\" means any non-source\n  116  form of a work.\n  117  \n  ...\n  168  with facilities for running those works, provided that you comply with\n  169  the terms of this License in conveying all material for which you do\n  170: not control copyright.  Those thus making or running the covered works\n  171  for you must do so exclusively on your behalf, under your direction\n  172: and control, on terms that prohibit them from making any copies of\n  173  your copyrighted material outside their relationship with you.\n  174  \n  ...\n  344  \n  345    \"Additional permissions\" are terms that supplement the terms of this\n  346: License by making exceptions from one or more of its conditions.\n  347  Additional permissions that are applicable to the entire Program shall\n  348  be treated as though they were included in this License, to the extent\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\draw.py:\n   22          self.borders = borders\n   23  \n   24:         with Timer(\"Making {}\".format(file_name), True):\n   25              for y in range(grid.hex_grid.size):\n   26                  for x in range(grid.hex_grid.size):\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\grid.py:\n   23  \n   24          if debug:\n   25:             print(\"Making grid\")\n   26          self.num_ocean_hexes = 0\n   27          self.grid = np.ndarray((self.heightmap.size, self.heightmap.size), dtype=np.object)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\heightmap.py:\n    8          self.params = params\n    9  \n   10:         # start making the heightmap\n   11          self.size = params.get('size')\n   12          self.grid = np.zeros((self.size, self.size))\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\mapgen.py:\n   56  \n   57          if debug:\n   58:             print(\"Making world with params:\")\n   59              for key, value in params.items():\n   60                  print(\"\\t{}:\\t{}\".format(key, value))\n   ..\n   75              print(\"\\tLowest Height: {}\".format(self.hex_grid.lowest_height))\n   76  \n   77:         print(\"Making calendar\")\n   78          self.calendar = Calendar(self.params.get('year_length'), self.params.get('day_length'))\n   79  \n   ..\n   92              # give coastal land hexes moisture based on how close to the coast they are\n   93              # TODO: replace with more realistic model\n   94:             print(\"Making coastal moisture\") if self.debug else False\n   95              for y, row in enumerate(self.hex_grid.grid):\n   96                  for x, col in enumerate(row):\n   ..\n  110              num_aquifers = 0\n  111  \n  112:         print(\"Making {} aquifers\".format(num_aquifers)) if self.debug else False\n  113          aquifers = []\n  114          while len(aquifers) < num_aquifers:\n  ...\n  135  \n  136          # decide terrain features\n  137:         print(\"Making terrain features\") if self.debug else False\n  138          # craters only form in barren planets with a normal or lower atmosphere\n  139          if self.params.get('craters') is True:\n  ...\n  141              # decide number of craters\n  142              num_craters = random.randint(0, 15)\n  143:             print(\"Making {} craters\".format(num_craters))\n  144              craters = []\n  145  \n  ...\n  188  \n  189              num_volcanoes = random.randint(0, 10)\n  190:             print(\"Making {} volcanoes\".format(num_volcanoes))\n  191              volcanoes = []\n  192              while len(volcanoes) < num_volcanoes:\n  ...\n  281  \n  282          # give each a land pixel to start\n  283:         print(\"Making {} territories\".format(num_territories)) if self.debug else False\n  284  \n  285          c = 0\n  ...\n  591          land_percent = 100 - self.params.get('sea_percent')\n  592          num_rivers = self.params.get('num_rivers')\n  593:         print(\"Making {} rivers\".format(num_rivers)) if self.debug else False\n  594  \n  595          while len(self.rivers_sources) < num_rivers:\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\util.py:\n  122      season_index = 0 for end_year, 1 for mid_year\n  123      world_pressure = the world's average surface air pressure\n  124:     hexagon = which hexagon we're making wind for\n  125      \"\"\"\n  126      lowest_neighbor = min(hexagon.neighbors, key=lambda h: h[1].pressure[season_index])\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\draw.py:\n   22          self.borders = borders\n   23  \n   24:         with Timer(\"Making {}\".format(file_name), True):\n   25              for y in range(grid.hex_grid.size):\n   26                  for x in range(grid.hex_grid.size):\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\grid.py:\n   23  \n   24          if debug:\n   25:             print(\"Making grid\")\n   26          self.num_ocean_hexes = 0\n   27          self.grid = np.ndarray((self.heightmap.size, self.heightmap.size), dtype=np.object)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\heightmap.py:\n    8          self.params = params\n    9  \n   10:         # start making the heightmap\n   11          self.size = params.get('size')\n   12          self.grid = np.zeros((self.size, self.size))\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\mapgen.py:\n   56  \n   57          if debug:\n   58:             print(\"Making world with params:\")\n   59              for key, value in params.items():\n   60                  print(\"\\t{}:\\t{}\".format(key, value))\n   ..\n   75              print(\"\\tLowest Height: {}\".format(self.hex_grid.lowest_height))\n   76  \n   77:         print(\"Making calendar\")\n   78          self.calendar = Calendar(self.params.get('year_length'), self.params.get('day_length'))\n   79  \n   ..\n   92              # give coastal land hexes moisture based on how close to the coast they are\n   93              # TODO: replace with more realistic model\n   94:             print(\"Making coastal moisture\") if self.debug else False\n   95              for y, row in enumerate(self.hex_grid.grid):\n   96                  for x, col in enumerate(row):\n   ..\n  110              num_aquifers = 0\n  111  \n  112:         print(\"Making {} aquifers\".format(num_aquifers)) if self.debug else False\n  113          aquifers = []\n  114          while len(aquifers) < num_aquifers:\n  ...\n  135  \n  136          # decide terrain features\n  137:         print(\"Making terrain features\") if self.debug else False\n  138          # craters only form in barren planets with a normal or lower atmosphere\n  139          if self.params.get('craters') is True:\n  ...\n  141              # decide number of craters\n  142              num_craters = random.randint(0, 15)\n  143:             print(\"Making {} craters\".format(num_craters))\n  144              craters = []\n  145  \n  ...\n  188  \n  189              num_volcanoes = random.randint(0, 10)\n  190:             print(\"Making {} volcanoes\".format(num_volcanoes))\n  191              volcanoes = []\n  192              while len(volcanoes) < num_volcanoes:\n  ...\n  281  \n  282          # give each a land pixel to start\n  283:         print(\"Making {} territories\".format(num_territories)) if self.debug else False\n  284  \n  285          c = 0\n  ...\n  591          land_percent = 100 - self.params.get('sea_percent')\n  592          num_rivers = self.params.get('num_rivers')\n  593:         print(\"Making {} rivers\".format(num_rivers)) if self.debug else False\n  594  \n  595          while len(self.rivers_sources) < num_rivers:\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\util.py:\n  122      season_index = 0 for end_year, 1 for mid_year\n  123      world_pressure = the world's average surface air pressure\n  124:     hexagon = which hexagon we're making wind for\n  125      \"\"\"\n  126      lowest_neighbor = min(hexagon.neighbors, key=lambda h: h[1].pressure[season_index])\n\n32 matches across 11 files\n\n\nSearching 53 files for \"finding contig\"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\mapgen.py:\n  771              # loop until every fucking hex has a geoform\n  772              # import ipdb; ipdb.set_trace()\n  773:             with Timer(\"\\tFinding contiguous geoforms\", self.debug):\n  774                  sys.setrecursionlimit(10000)\n  775                  current = first_hex_without_geoform(self.hex_grid.grid)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\mapgen.py:\n  771              # loop until every fucking hex has a geoform\n  772              # import ipdb; ipdb.set_trace()\n  773:             with Timer(\"\\tFinding contiguous geoforms\", self.debug):\n  774                  sys.setrecursionlimit(10000)\n  775                  current = first_hex_without_geoform(self.hex_grid.grid)\n\n2 matches across 2 files\n\n\nSearching 53 files for \"map_geoforms\"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\__init__.py:\n  109      # HexGridDraw(hex_grid, color_terrain, \"map_terrain.png\",    rivers=True, show_coasts=True)\n  110      # HexGridDraw(hex_grid, color_hex_type, \"map_hex_types.png\", rivers=True, show_coasts=True)\n  111:     HexGridDraw(hex_grid, color_geoforms, \"map_geoforms.png\", rivers=False, show_coasts=True)\n  112      HexGridDraw(hex_grid, color_rivers, \"map_rivers.png\", rivers=True, show_coasts=True)\n  113      HexGridDraw(hex_grid, color_temperature_end_year, \"map_temp_end_year.png\", rivers=False, show_coasts=True)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\__init__.py:\n  109      # HexGridDraw(hex_grid, color_terrain, \"map_terrain.png\",    rivers=True, show_coasts=True)\n  110      # HexGridDraw(hex_grid, color_hex_type, \"map_hex_types.png\", rivers=True, show_coasts=True)\n  111:     HexGridDraw(hex_grid, color_geoforms, \"map_geoforms.png\", rivers=False, show_coasts=True)\n  112      HexGridDraw(hex_grid, color_rivers, \"map_rivers.png\", rivers=True, show_coasts=True)\n  113      HexGridDraw(hex_grid, color_temperature_end_year, \"map_temp_end_year.png\", rivers=False, show_coasts=True)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\__init__.py:\n  109      # HexGridDraw(hex_grid, color_terrain, \"map_terrain.png\",    rivers=True, show_coasts=True)\n  110      # HexGridDraw(hex_grid, color_hex_type, \"map_hex_types.png\", rivers=True, show_coasts=True)\n  111:     HexGridDraw(hex_grid, color_geoforms, \"map_geoforms.png\", rivers=False, show_coasts=True)\n  112      HexGridDraw(hex_grid, color_rivers, \"map_rivers.png\", rivers=True, show_coasts=True)\n  113      HexGridDraw(hex_grid, color_temperature_end_year, \"map_temp_end_year.png\", rivers=False, show_coasts=True)\n\n3 matches across 3 files\n",
-			"settings":
-			{
-				"buffer_size": 19064,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
 			"file": "__init__.py",
 			"settings":
 			{
-				"buffer_size": 8914,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/avonc/Documents/DND/hexgen/build/lib/hexgen/draw.py",
-			"settings":
-			{
-				"buffer_size": 6510,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/avonc/Documents/DND/hexgen/example.py",
-			"settings":
-			{
-				"buffer_size": 388,
+				"buffer_size": 8790,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -117,7 +72,78 @@
 			"file": "mapgen.py",
 			"settings":
 			{
-				"buffer_size": 43200,
+				"buffer_size": 43700,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/avonc/Documents/DND/hexgen/bin/exportfile.json",
+			"settings":
+			{
+				"buffer_size": 19545939,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/avonc/Documents/DND/hexgen/bin/export3.json",
+			"settings":
+			{
+				"buffer_size": 3616658,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "util.py",
+			"settings":
+			{
+				"buffer_size": 9428,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "heightmap.py",
+			"settings":
+			{
+				"buffer_size": 5230,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 74 files for \"finding continuous geoforms\"\n\n0 matches\n\nSearching 74 files for \"finding contiguous geoforms\"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\mapgen.py:\n  771              # loop until every fucking hex has a geoform\n  772              # import ipdb; ipdb.set_trace()\n  773:             with Timer(\"\\tFinding contiguous geoforms\", self.debug):\n  774                  sys.setrecursionlimit(10000)\n  775                  current = first_hex_without_geoform(self.hex_grid.grid)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\mapgen.py:\n  771              # loop until every fucking hex has a geoform\n  772              # import ipdb; ipdb.set_trace()\n  773:             with Timer(\"\\tFinding contiguous geoforms\", self.debug):\n  774                  sys.setrecursionlimit(10000)\n  775                  current = first_hex_without_geoform(self.hex_grid.grid)\n\n2 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 908,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "projectfile.sublime-project",
+			"settings":
+			{
+				"buffer_size": 84,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "enums.py",
+			"settings":
+			{
+				"buffer_size": 11715,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "constants.py",
+			"settings":
+			{
+				"buffer_size": 7119,
 				"line_ending": "Windows"
 			}
 		}
@@ -175,12 +201,21 @@
 		"/C/Users/avonc/Documents/DND/hexgen/bin",
 		"/C/Users/avonc/Documents/DND/hexgen/build",
 		"/C/Users/avonc/Documents/DND/hexgen/build/lib",
-		"/C/Users/avonc/Documents/DND/hexgen/docs",
-		"/C/Users/avonc/Documents/DND/hexgen/hexgen",
-		"/C/Users/avonc/Documents/DND/hexgen/hexgen/__pycache__"
+		"/C/Users/avonc/Documents/DND/hexgen/docs"
 	],
 	"file_history":
 	[
+		"/C/Users/avonc/Documents/DND/hexgen/.gitignore",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/draw.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/pilfont.py",
+		"/C/Users/avonc/Documents/otf2bdf/freetype6.dll",
+		"/C/Users/avonc/Documents/otf2bdf/otf2bdf.exe",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/heightmap.py",
+		"/C/Users/avonc/Documents/DND/hexgen/setup.py",
+		"/C/Users/avonc/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/ImageFile.py",
+		"/C/Users/avonc/Documents/DND/hexgen/build/lib/hexgen/draw.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/__init__.py",
+		"/C/Users/avonc/Documents/DND/hexgen/example.py",
 		"/C/Users/avonc/Documents/DND/hexgen/bin/map_geoforms.png",
 		"/C/Users/avonc/Documents/DND/hexgen/bin/example.py",
 		"/C/Users/avonc/Documents/DND/hexgen/bin/export.json",
@@ -188,7 +223,6 @@
 		"/C/Users/avonc/Documents/DND/hexgen/README.md",
 		"/C/Users/avonc/Documents/DND/hexgen/todo.md",
 		"/C/Users/avonc/Documents/DND/hexgen/setup_env",
-		"/C/Users/avonc/Documents/DND/hexgen/setup.py",
 		"/C/Users/avonc/Documents/DND/hexgen/test",
 		"/C/Users/avonc/Documents/DND/matplotlib/CONTRIBUTING.md",
 		"/C/Users/avonc/Documents/DND/matplotlib/doc-requirements.txt",
@@ -238,7 +272,7 @@
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 80.0
 	},
 	"find_in_files":
 	{
@@ -253,6 +287,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bmp",
+			"hex_grid",
+			"geoform",
+			"first_he",
+			"first_hex_without_geoform",
+			"finding contiguous geoforms",
+			"finding continuous geoforms",
+			"random_seed",
+			"height_range",
+			"resource",
+			"color_resources",
 			".png",
 			"map_geoforms",
 			"image",
@@ -284,24 +329,88 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/avonc/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/ImageFile.py",
+					"file": "__init__.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16101,
+						"buffer_size": 8790,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14328,
-								14328
+								2635,
+								2635
+							],
+							[
+								2729,
+								2729
+							],
+							[
+								2826,
+								2826
+							],
+							[
+								2919,
+								2919
+							],
+							[
+								3009,
+								3009
+							],
+							[
+								3119,
+								3119
+							],
+							[
+								3230,
+								3230
+							],
+							[
+								3318,
+								3318
+							],
+							[
+								3400,
+								3400
+							],
+							[
+								3510,
+								3510
+							],
+							[
+								3574,
+								3574
+							],
+							[
+								3628,
+								3628
+							],
+							[
+								3740,
+								3740
+							],
+							[
+								3855,
+								3855
+							],
+							[
+								3968,
+								3968
+							],
+							[
+								4073,
+								4073
+							],
+							[
+								4179,
+								4179
 							]
 						],
 						"settings":
@@ -311,512 +420,90 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 11618.0,
+						"translation.y": 2280.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Users/avonc/Documents/DND/hexgen/setup.py",
+					"file": "mapgen.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 107,
+						"buffer_size": 43700,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107,
-								107
+								31960,
+								31965
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19064,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										120,
-										124
-									],
-									[
-										222,
-										226
-									],
-									[
-										614,
-										618
-									],
-									[
-										643,
-										647
-									],
-									[
-										937,
-										941
-									],
-									[
-										1007,
-										1011
-									],
-									[
-										1230,
-										1234
-									],
-									[
-										1304,
-										1308
-									],
-									[
-										1583,
-										1587
-									],
-									[
-										1891,
-										1895
-									],
-									[
-										2249,
-										2253
-									],
-									[
-										2303,
-										2307
-									],
-									[
-										2363,
-										2367
-									],
-									[
-										2385,
-										2389
-									],
-									[
-										2442,
-										2446
-									],
-									[
-										2456,
-										2460
-									],
-									[
-										2609,
-										2613
-									],
-									[
-										2825,
-										2829
-									],
-									[
-										3132,
-										3136
-									],
-									[
-										3476,
-										3480
-									],
-									[
-										3696,
-										3700
-									],
-									[
-										3756,
-										3760
-									],
-									[
-										4035,
-										4039
-									],
-									[
-										4056,
-										4060
-									],
-									[
-										4114,
-										4118
-									],
-									[
-										4176,
-										4180
-									],
-									[
-										4341,
-										4345
-									],
-									[
-										4648,
-										4652
-									],
-									[
-										4992,
-										4996
-									],
-									[
-										5202,
-										5206
-									],
-									[
-										5262,
-										5266
-									],
-									[
-										5541,
-										5545
-									],
-									[
-										5562,
-										5566
-									],
-									[
-										5620,
-										5624
-									],
-									[
-										5682,
-										5686
-									],
-									[
-										5882,
-										5888
-									],
-									[
-										5991,
-										5997
-									],
-									[
-										6023,
-										6029
-									],
-									[
-										6103,
-										6109
-									],
-									[
-										6287,
-										6293
-									],
-									[
-										6535,
-										6541
-									],
-									[
-										6559,
-										6565
-									],
-									[
-										6619,
-										6625
-									],
-									[
-										6842,
-										6848
-									],
-									[
-										6854,
-										6860
-									],
-									[
-										6990,
-										6996
-									],
-									[
-										7217,
-										7223
-									],
-									[
-										7260,
-										7266
-									],
-									[
-										7527,
-										7533
-									],
-									[
-										7570,
-										7576
-									],
-									[
-										8096,
-										8103
-									],
-									[
-										8456,
-										8463
-									],
-									[
-										8651,
-										8658
-									],
-									[
-										8948,
-										8955
-									],
-									[
-										9112,
-										9119
-									],
-									[
-										9321,
-										9328
-									],
-									[
-										9667,
-										9674
-									],
-									[
-										9940,
-										9947
-									],
-									[
-										10228,
-										10235
-									],
-									[
-										10479,
-										10486
-									],
-									[
-										10741,
-										10748
-									],
-									[
-										11058,
-										11065
-									],
-									[
-										11298,
-										11305
-									],
-									[
-										11522,
-										11529
-									],
-									[
-										11847,
-										11854
-									],
-									[
-										12024,
-										12031
-									],
-									[
-										12244,
-										12251
-									],
-									[
-										12499,
-										12506
-									],
-									[
-										12860,
-										12867
-									],
-									[
-										13112,
-										13119
-									],
-									[
-										13375,
-										13382
-									],
-									[
-										13653,
-										13660
-									],
-									[
-										13894,
-										13901
-									],
-									[
-										14156,
-										14163
-									],
-									[
-										14473,
-										14480
-									],
-									[
-										14713,
-										14720
-									],
-									[
-										14937,
-										14944
-									],
-									[
-										15262,
-										15269
-									],
-									[
-										15439,
-										15446
-									],
-									[
-										15659,
-										15666
-									],
-									[
-										15914,
-										15921
-									],
-									[
-										16265,
-										16272
-									],
-									[
-										16674,
-										16688
-									],
-									[
-										17051,
-										17065
-									],
-									[
-										17607,
-										17619
-									],
-									[
-										18195,
-										18207
-									],
-									[
-										18773,
-										18785
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								18781,
-								18781
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 7,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 11101.0,
+						"translation.y": 19543.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "__init__.py",
+					"buffer": 2,
+					"file": "/C/Users/avonc/Documents/DND/hexgen/bin/exportfile.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8914,
+						"buffer_size": 19545939,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2323,
-								2323
+								298,
+								298
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2099.0,
+						"translation.y": 22198949.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/C/Users/avonc/Documents/DND/hexgen/build/lib/hexgen/draw.py",
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "/C/Users/avonc/Documents/DND/hexgen/bin/export3.json",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 6510,
+						"buffer_size": 3616658,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4189,
-								4189
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1154.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/avonc/Documents/DND/hexgen/example.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								175,
-								175
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -826,20 +513,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "mapgen.py",
+					"buffer": 4,
+					"file": "util.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 43200,
+						"buffer_size": 9428,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								39827,
-								39831
+								8975,
+								8975
 							]
 						],
 						"settings":
@@ -849,10 +536,178 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 5415.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "heightmap.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2903,
+								2903
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1477.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 908,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										331,
+										358
+									],
+									[
+										708,
+										735
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								723,
+								723
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "projectfile.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 84,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "enums.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11715,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4336,
+								4336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2855.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "constants.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7119,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6122,
+								6122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3080.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -907,6 +762,30 @@
 		"selected_items":
 		[
 			[
+				"util",
+				"hexgen\\util.py"
+			],
+			[
+				"draw",
+				"hexgen\\draw.py"
+			],
+			[
+				"heightmap",
+				"hexgen\\heightmap.py"
+			],
+			[
+				"constants",
+				"hexgen\\constants.py"
+			],
+			[
+				"enum",
+				"hexgen\\enums.py"
+			],
+			[
+				"init",
+				"hexgen\\__init__.py"
+			],
+			[
 				"setup",
 				"setup.py"
 			],
@@ -943,7 +822,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 414.0,
+	"side_bar_width": 474.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
