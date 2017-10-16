@@ -10,8 +10,8 @@ options = {
     "avg_temp": 25,
     "sea_percent": 40,
     "hydrosphere": True,
-    "num_rivers": 125
-    #"random_seed": 1234578
+    "num_rivers": 125,
+    "random_seed": 1234578
 }
 
 gen = generate(options, image=True)
