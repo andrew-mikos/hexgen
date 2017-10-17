@@ -30,11 +30,11 @@ class HexGridDraw:
 
                     if self.show_coasts and grid.params.get('hydrosphere'):
                         for e in h.edges:
-                            if h.is_land and e.two.is_water:
-                                self.draw_hex_edge(x, y, e.side, 4)
+                            if h.is_land and e.two is not None and e.two.is_water:
+                                self.draw_hex_edge(x, y, e.side, 5)
                     if self.borders:
                         for e in h.edges:
-                            if e.one.is_owned and e.two.is_owned and \
+                            if e.one is not None and e.one.is_owned and e.two is not None and e.two.is_owned and \
                                             e.one.territory.id != e.two.territory.id:
                                 self.draw_hex_edge(x, y, e.side, 2)
                     if rivers:
@@ -51,17 +51,17 @@ class HexGridDraw:
                         for s in segments:
                             # print("RiverSegment {} at {}, {}".format(s, x, y))
                             if s is HexSide.north_east:
-                                self.draw.line([origin, pointer], river_blue, width=3)
+                                self.draw.line([origin, pointer], river_blue, width=6)
                             elif s is HexSide.east:
-                                self.draw.line([pointer, pointer_2], river_blue, width=3)
+                                self.draw.line([pointer, pointer_2], river_blue, width=6)
                             elif s is HexSide.south_east:
-                                self.draw.line([pointer_2, pointer_3], river_blue, width=3)
+                                self.draw.line([pointer_2, pointer_3], river_blue, width=6)
                             elif s is HexSide.south_west:
-                                self.draw.line([pointer_3, pointer_4], river_blue, width=3)
+                                self.draw.line([pointer_3, pointer_4], river_blue, width=6)
                             elif s is HexSide.west:
-                                self.draw.line([pointer_4, pointer_5], river_blue, width=3)
+                                self.draw.line([pointer_4, pointer_5], river_blue, width=6)
                             elif s is HexSide.north_west:
-                                self.draw.line([pointer_5, origin], river_blue, width=3)
+                                self.draw.line([pointer_5, origin], river_blue, width=6)
             self.image.save('bin/' + file_name)
 
     def draw_hex_edge(self, x, y, side, width=3, color=(0, 0, 0)):

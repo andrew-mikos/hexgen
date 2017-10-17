@@ -13,7 +13,10 @@ class Edge:
         self.two = two
         self.up = up
         self.down = down
-        self.delta = self.up.altitude - self.down.altitude
+        if self.up is not None and self.down is not None:
+            self.delta = self.up.altitude - self.down.altitude
+        else:
+            self.delta = None
         self.id = uuid.uuid4()
 
         self.is_river = False
@@ -24,11 +27,16 @@ class Edge:
 
     @property
     def is_coast(self):
-        return self.one.is_water and self.two.is_land or \
-               self.one.is_land and self.two.is_water
+        iscoast = False
+        if self.one is not None and self.two is not None:
+            iscoast = self.one.is_water and self.two.is_land or \
+                   self.one.is_land and self.two.is_water
+        return iscoast
 
     @property
     def direction(self):
+        if self.one is None or self.two is None or self.up is None or self.down is None:
+            return EdgeDirection.none
         if self.one.x == self.two.x:
             if self.down.x < self.one.x:
                 return EdgeDirection.north

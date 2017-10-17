@@ -351,7 +351,8 @@ class Hex:
     def hex_east(self):
         """ Returns the hex to the East or None if end of map"""
         if self.y == self.max_size:
-            return self.grid.find_hex(self.x, 0)
+            return None
+            #return self.grid.find_hex(self.x, 0)
         else:
             return self.grid.find_hex(self.x, self.y + 1)
 
@@ -359,7 +360,8 @@ class Hex:
     def hex_west(self):
         """ Returns the hex to the West or None if end of map"""
         if self.y == 0:
-            return self.grid.find_hex(self.x, self.max_size)
+            return None
+            #return self.grid.find_hex(self.x, self.max_size)
         else:
             return self.grid.find_hex(self.x, self.y - 1)
 
@@ -367,22 +369,26 @@ class Hex:
     def hex_north_west(self):
         """ Returns the hex to the north west"""
         if self.x == 0:  # top of map
-            return self.grid.find_hex(0, round(self.y / -1 + self.max_size))
+            #return self.grid.find_hex(0, round(self.y / -1 + self.max_size))
+            return None
         elif self.y == 0 and self.x % 2 == 0:  # left of map and even
-            return self.grid.find_hex(self.x - 1, self.max_size)
+            #return self.grid.find_hex(self.x - 1, self.max_size)
+            return None
         else:
-            if self.x % 2 == 0:  # even
-                return self.grid.find_hex(self.x - 1, self.y - 1)
-            else:
+            if self.x % 2 == 1:  # odd
                 return self.grid.find_hex(self.x - 1, self.y)
+            else:
+                return self.grid.find_hex(self.x - 1, self.y - 1)
 
     @property
     def hex_north_east(self):
         """ Returns the hex to the North East or None if end of map"""
         if self.x == 0:  # top of map
-            return self.grid.find_hex(0, round(self.y / -1 + self.max_size))
+            #return self.grid.find_hex(0, round(self.y / -1 + self.max_size))
+            return None
         elif self.y == self.max_size and self.x % 2 == 1:  # right of map and x is odd
-            return self.grid.find_hex(self.x - 1, 0)
+            #return self.grid.find_hex(self.x - 1, 0)
+            return None
         else:
             if self.x % 2 == 0:  # even
                 return self.grid.find_hex(self.x - 1, self.y)
@@ -393,22 +399,26 @@ class Hex:
     def hex_south_west(self):
         """ Returns the hex to the South West or None if end of map"""
         if self.x == self.max_size:  # bottom of map
-            return self.grid.find_hex(self.max_size, round(self.y / -1 + self.max_size))
-        elif self.y == 0 and self.x % 2 == 1:  # left of map and x is odd
-            return self.grid.find_hex(self.x - 1, self.max_size)
+            #return self.grid.find_hex(self.max_size, round(self.y / -1 + self.max_size))
+            return None
+        elif self.y == 0 and self.x % 2 == 0:  # left of map and x is odd
+            #return self.grid.find_hex(self.x - 1, self.max_size)
+            return None
         else:
-            if self.x % 2 == 0:  # even
-                return self.grid.find_hex(self.x + 1, self.y - 1)
-            else:
+            if self.x % 2 == 1:  # odd
                 return self.grid.find_hex(self.x + 1, self.y)
+            else:
+                return self.grid.find_hex(self.x + 1, self.y - 1)
 
     @property
     def hex_south_east(self):
         """ Returns the hex to the South East or None if end of map"""
         if self.x == self.max_size:  # bottom of map
-            return self.grid.find_hex(self.max_size, round(self.y / -1 + self.max_size))
+            #return self.grid.find_hex(self.max_size, round(self.y / -1 + self.max_size))
+            return None
         elif self.y == self.max_size and self.x % 2 == 1:  # right of map and x is odd
-            return self.grid.find_hex(self.x + 1, 0)
+            #return self.grid.find_hex(self.x + 1, 0)
+            return None
         else:
             if self.x % 2 == 0:  # even
                 return self.grid.find_hex(self.x + 1, self.y)
@@ -437,8 +447,20 @@ class Hex:
          Returns a list of all surrounding hexes
          Returns: Hex
         """
-        return [self.hex_east, self.hex_south_east, self.hex_south_west,
-                self.hex_west, self.hex_north_west, self.hex_north_east]
+        around = []
+        if self.hex_west is not None:
+            around.append(self.hex_west)
+        if self.hex_east is not None:
+            around.append(self.hex_east)
+        if self.hex_south_east is not None:
+            around.append(self.hex_south_east)
+        if self.hex_south_west is not None:
+            around.append(self.hex_south_west)
+        if self.hex_north_east is not None:
+            around.append(self.hex_north_east)
+        if self.hex_north_west is not None:
+            around.append(self.hex_north_west)
+        return around
 
     @property
     def neighbors(self):
@@ -446,14 +468,19 @@ class Hex:
         if self._neighbors is not None:
             return self._neighbors
         else:
-            self._neighbors = [
-                (HexEdge.east, self.hex_east),
-                (HexEdge.south_east, self.hex_south_east),
-                (HexEdge.south_west, self.hex_south_west),
-                (HexEdge.west, self.hex_west),
-                (HexEdge.north_west, self.hex_north_west),
-                (HexEdge.north_east, self.hex_north_east),
-            ]
+            self._neighbors = []
+            if HexEdge.east is not None and self.hex_east is not None:
+                self._neighbors.append((HexEdge.east, self.hex_east))
+            if HexEdge.south_east is not None and self.hex_south_east is not None:
+                self._neighbors.append((HexEdge.south_east, self.hex_south_east))
+            if HexEdge.south_west is not None and self.hex_south_west is not None:
+                self._neighbors.append((HexEdge.south_west, self.hex_south_west))
+            if HexEdge.west is not None and self.hex_west is not None:
+                self._neighbors.append((HexEdge.west, self.hex_west))
+            if HexEdge.north_west is not None and self.hex_north_west is not None:
+                self._neighbors.append((HexEdge.north_west, self.hex_north_west))
+            if HexEdge.north_east is not None and self.hex_north_east is not None:
+                self._neighbors.append((HexEdge.north_east, self.hex_north_east))
             return self._neighbors
 
     def bubble(self, distance=1):
@@ -472,7 +499,8 @@ class Hex:
                 if iteration < distance - 1:
                     temp = []
                     for h in hexes:
-                        temp.extend(h.surrounding)
+                        if h is not None:
+                            temp.extend(h.surrounding)
                     return step(iteration + 1, temp)
                 else:
                     return hexes
@@ -505,10 +533,7 @@ class Hex:
     def is_inland(self):
         if self.is_land is False:
             return False
-        around = [self.hex_west, self.hex_east,
-                  self.hex_south_east, self.hex_south_west,
-                  self.hex_north_east, self.hex_north_west]
-        return all(x.is_land for x in around)
+        return all(x.is_land for x in self.surrounding)
 
     @property
     def is_coast(self):
@@ -516,12 +541,17 @@ class Hex:
 
     def decide_slope(self, one, two):
         """ Returns UP, DOWN tuple """
+        if one is None or two is None:
+            return None, None
         if one.altitude < two.altitude:
             return two, one
         return one, two
 
     def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
+        if self is not None and other is not None:
+            return self.x == other.x and self.y == other.y
+        else:
+            return False
 
     def __key(self):
         return self.x, self.y
@@ -583,8 +613,20 @@ class Hex:
 
     @property
     def edges(self):
-        return [self.edge_east, self.edge_north_east, self.edge_north_west, self.edge_west,
-                self.edge_south_west, self.edge_south_east]
+        edges = []
+        if self.edge_east is not None:             
+            edges.append(self.edge_east)
+        if self.edge_north_east is not None:             
+            edges.append(self.edge_north_east)
+        if self.edge_north_west is not None:             
+            edges.append(self.edge_north_west)
+        if self.edge_west is not None:             
+            edges.append(self.edge_west)
+        if self.edge_south_west is not None:             
+            edges.append(self.edge_south_west)
+        if self.edge_south_east is not None: 
+            edges.append(self.edge_south_east)
+        return edges
 
     def __repr__(self):
         return "<HEX: X: {}, Y: {}, Z: {}>".format(self.x, self.y, self.altitude)

@@ -205,17 +205,17 @@ class GeoformType(SuperEnum):
 
     # water
     ocean   = (1, "Ocean", (0, 0, 255))       # > 100 water hexes
-    sea     = (2, "Sea", (50, 50, 200))         # < 100 water hexes
+    sea     = (2, "Sea", (150, 150, 255))         # < 100 water hexes
     strait  = (3, "Strait", (100, 100, 150))      # a water hex with land on opposite sides and water in between them
     lake    = (4, "Lake", (0, 0, 100))        # a group of up to 3 water hexes
-    bay = (10, "Bay", (50, 50, 150))
+    bay = (10, "Bay", (80, 80, 220))
 
     # land
-    isthmus = (5, "Isthmus", (100, 150, 100))            # a land hex with water on opposite sides and land in between them
+    isthmus = (5, "Isthmus", (150, 150, 100))            # a land hex with water on opposite sides and land in between them
     small_island  = (6, "Small Island", (200, 255, 200)) # < 25 land hexes
-    large_island  = (7, "Large Island", (100, 255, 100)) # < 100 land hexes
+    large_island  = (7, "Large Island", (100, 200, 100)) # < 100 land hexes
     continent = (8, "Continent", (0, 255, 0))        # > 100 land hexes
-    peninsula = (9, "Peninsula", (0, 200, 0))        # group of land separated by an isthmus
+    peninsula = (9, "Peninsula", (0, 100, 0))        # group of land separated by an isthmus
 
 
 
@@ -226,6 +226,7 @@ class EdgeDirection(Enum):
     north_east = "North East"
     south_west = "South West"
     south_east = "South East"
+    none = "None"
 
 
 class HexSide(Enum):

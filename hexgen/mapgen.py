@@ -4,7 +4,7 @@ import simplejson as json
 import math
 import random
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(2000)
 
 from hexgen.constants import *
 from hexgen.territory import Territory
@@ -390,14 +390,14 @@ class MapGen:
                     numbers = []
 
                     east = h.hex_east
-                    while east.is_land is True and count < self.hex_grid.size * 2:
+                    while east is not None and east.is_land is True and count < self.hex_grid.size * 2:
                         east = east.hex_east
                         count += 1
                     numbers.append(count)
                     count = 1
 
                     west = h.hex_west
-                    while west.is_land is True and count < self.hex_grid.size * 2:
+                    while west is not None and west.is_land is True and count < self.hex_grid.size * 2:
                         west = west.hex_west
                         count += 1
                     numbers.append(count)
@@ -405,7 +405,7 @@ class MapGen:
 
 
                     north_east = h.hex_north_east
-                    while north_east.is_land is True and count < self.hex_grid.size * 2:
+                    while north_east is not None and north_east.is_land is True and count < self.hex_grid.size * 2:
                         north_east = north_east.hex_north_east
                         count += 1
                     numbers.append(count)
@@ -413,7 +413,7 @@ class MapGen:
 
 
                     north_west = h.hex_north_west
-                    while north_west.is_land is True and count < self.hex_grid.size * 2:
+                    while north_west is not None and north_west.is_land is True and count < self.hex_grid.size * 2:
                         north_west = north_west.hex_north_west
                         count += 1
 
@@ -422,14 +422,14 @@ class MapGen:
 
 
                     south_west = h.hex_south_west
-                    while south_west.is_land is True and count < self.hex_grid.size * 2:
+                    while south_west is not None and south_west.is_land is True and count < self.hex_grid.size * 2:
                         south_west = south_west.hex_south_west
                         count += 1
                     numbers.append(count)
                     count = 1
 
                     south_east = h.hex_south_east
-                    while south_east.is_land is True and count < self.hex_grid.size * 2:
+                    while south_east is not None and south_east.is_land is True and count < self.hex_grid.size * 2:
                         south_east = south_east.hex_south_east
                         count += 1
                     numbers.append(count)
@@ -493,10 +493,12 @@ class MapGen:
 
                 for h in matching_land_hexes:
                     for h in h.bubble(3):
-                        h.pressure = decide_change(h, incr * h.zone.incr)
+                        if h is not None:
+                            h.pressure = decide_change(h, incr * h.zone.incr)
                 for h in matching_water_hexes:
                     for h in h.bubble(3):
-                        h.pressure = decide_change(h, incr * h.zone.incr)
+                        if h is not None:
+                            h.pressure = decide_change(h, incr * h.zone.incr)
 
             brush(0.80, 0.05)
             brush(0.30, 0.10)
@@ -620,34 +622,44 @@ class MapGen:
                 down = segment.edge.down  # down-slope hex of this segment
 
                 # add the moisture to the one and two hexes in a 3 radius
-                one = segment.edge.one.bubble(distance=3)
-                two = segment.edge.two.bubble(distance=3)
+                one = []
+                two = []
+                three = []
+                four = []
+                if segment.edge.one is not None:
+                    one = segment.edge.one.bubble(distance=3)
+                    three = segment.edge.one.surrounding
+                if segment.edge.two is not None:
+                    two = segment.edge.two.bubble(distance=3)
+                    four = segment.edge.two.surrounding
                 both = list(set(one + two))
                 for hex in both:
                     if hex.is_land:
                         hex.moisture += 1
-                three = segment.edge.one.surrounding
-                four = segment.edge.two.surrounding
                 both = list(set(three + four))
                 for hex in both:
                     if hex.is_land:
                         hex.moisture += 1
 
                 # find the two Edges from the sides found branching
-                edge_one = down.get_edge(side_one)
-                edge_two = down.get_edge(side_two)
-
-                # check if either of the edges are valid river segment locations
                 one_valid = True
                 two_valid = True
-                if edge_one.down == segment.edge.one or edge_one.down == segment.edge.two:
-                    one_valid = False
-                if edge_two.down == segment.edge.one or edge_two.down == segment.edge.two:
-                    two_valid = False
+                if down is not None:
+                    edge_one = down.get_edge(side_one)
+                    edge_two = down.get_edge(side_two)
 
-                if self.is_river(edge_one):
+                    # check if either of the edges are valid river segment locations
+                    if edge_one.down == segment.edge.one or edge_one.down == segment.edge.two or edge_one.down is None:
+                        one_valid = False
+                    if edge_two.down == segment.edge.one or edge_two.down == segment.edge.two or edge_two.down is None:
+                        two_valid = False
+
+                    if self.is_river(edge_one):
+                        one_valid = False
+                    elif self.is_river(edge_two):
+                        two_valid = False
+                else:
                     one_valid = False
-                elif self.is_river(edge_two):
                     two_valid = False
 
                 if one_valid and two_valid:
@@ -793,7 +805,7 @@ class MapGen:
                                 else:
                                     # try to find oceans
                                     hexes = flood(set(), current, current.type)
-                                    if len(hexes) < 3:
+                                    if len(hexes) <= 3:
                                         geotype = GeoformType.lake
                                     elif len(hexes) < 100:
                                         geotype = GeoformType.sea
@@ -829,6 +841,26 @@ class MapGen:
 
                 calculate_neighbors()
 
+                # need to make sure islands aren't part of contenents
+                for geoform in self.geoforms:
+                    for neighbor in geoform.neighbors:
+                        if geoform.type is GeoformType.large_island or geoform.type is GeoformType.small_island or geoform.type is GeoformType.continent:
+                            contenents = geoform.neighbor_of_type(GeoformType.continent)
+                            if len(contenents) > 0:
+                                contenents[0].merge(geoform)
+                                print('Merging {} into contenet'.format(geoform.type))
+                calculate_neighbors()
+
+                # same goes for seas and lakes into oceans
+                for geoform in self.geoforms:
+                    for neighbor in geoform.neighbors:
+                        if geoform.type is GeoformType.sea or geoform.type is GeoformType.lake:
+                            oceans = geoform.neighbor_of_type(GeoformType.ocean)
+                            if len(oceans) > 0:
+                                oceans[0].merge(geoform)
+                                print('Merging sea into ocean')
+                calculate_neighbors()
+
                 # if an island is next to a continent or island separated by an isthmus,
                 # and that island doesn't have any other isthmuses
                 # the island becomes a peninsula
@@ -840,7 +872,7 @@ class MapGen:
                                                                GeoformType.large_island])
 
                         if len(islands) == 1 and len(land_form) == 1 and \
-                            len(land_form[0].neighbors) >= 2:
+                            land_form[0] != islands[0]:
                             other_isthmuses = len(islands[0].neighbor_of_type(GeoformType.isthmus)) > 1
                             # check to see if this island has other isthmuses
                             # if it does, exclude it
@@ -851,7 +883,7 @@ class MapGen:
 
                 calculate_neighbors()
 
-                # small islands separated by an isthmus to a large island should
+                # small islands adjacent to a large island should
                 # be merged into the large island
                 for geoform in self.geoforms:
                     if geoform.type is GeoformType.small_island:
@@ -995,7 +1027,7 @@ class MapGen:
                 data['geoforms'].append(geoform.to_dict())
         with open(filename, 'w') as outfile:
             with Timer("Writing data to JSON file", self.debug):
-                json.dump(data, outfile)
+                json.dump(data, outfile, indent=4, sort_keys=True)
         return data
 
 from hexgen.river import RiverSegment
