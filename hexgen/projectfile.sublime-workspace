@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"neigh",
+				"neighbor_of_type"
+			],
+			[
+				"cont",
+				"continent"
+			],
+			[
 				"heavy",
 				"heavyarmor"
 			],
@@ -60,10 +68,28 @@
 	"buffers":
 	[
 		{
-			"file": "__init__.py",
+			"file": "/C/Users/avonc/Documents/DND/hexgen/hexgen.py",
 			"settings":
 			{
-				"buffer_size": 8790,
+				"buffer_size": 396,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/avonc/Documents/DND/hexgen/README.md",
+			"settings":
+			{
+				"buffer_size": 3271,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "draw.py",
+			"settings":
+			{
+				"buffer_size": 6498,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -72,25 +98,16 @@
 			"file": "mapgen.py",
 			"settings":
 			{
-				"buffer_size": 43700,
+				"buffer_size": 45591,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/avonc/Documents/DND/hexgen/bin/exportfile.json",
+			"file": "geoform.py",
 			"settings":
 			{
-				"buffer_size": 19545939,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/avonc/Documents/DND/hexgen/bin/export3.json",
-			"settings":
-			{
-				"buffer_size": 3616658,
+				"buffer_size": 1833,
 				"line_ending": "Windows"
 			}
 		},
@@ -99,51 +116,40 @@
 			"settings":
 			{
 				"buffer_size": 9428,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "hex.py",
+			"settings":
+			{
+				"buffer_size": 29096,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "heightmap.py",
+			"file": "grid.py",
 			"settings":
 			{
-				"buffer_size": 5230,
-				"encoding": "UTF-8",
+				"buffer_size": 1896,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 74 files for \"finding continuous geoforms\"\n\n0 matches\n\nSearching 74 files for \"finding contiguous geoforms\"\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\build\\lib\\hexgen\\mapgen.py:\n  771              # loop until every fucking hex has a geoform\n  772              # import ipdb; ipdb.set_trace()\n  773:             with Timer(\"\\tFinding contiguous geoforms\", self.debug):\n  774                  sys.setrecursionlimit(10000)\n  775                  current = first_hex_without_geoform(self.hex_grid.grid)\n\nC:\\Users\\avonc\\Documents\\DND\\hexgen\\hexgen\\mapgen.py:\n  771              # loop until every fucking hex has a geoform\n  772              # import ipdb; ipdb.set_trace()\n  773:             with Timer(\"\\tFinding contiguous geoforms\", self.debug):\n  774                  sys.setrecursionlimit(10000)\n  775                  current = first_hex_without_geoform(self.hex_grid.grid)\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 908,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "projectfile.sublime-project",
-			"settings":
-			{
-				"buffer_size": 84,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "enums.py",
 			"settings":
 			{
-				"buffer_size": 11715,
+				"buffer_size": 11735,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "constants.py",
+			"file": "/C/Users/avonc/Documents/DND/hexgen/colorkey.html",
 			"settings":
 			{
-				"buffer_size": 7119,
+				"buffer_size": 3987,
 				"line_ending": "Windows"
 			}
 		}
@@ -198,23 +204,33 @@
 	"expanded_folders":
 	[
 		"/C/Users/avonc/Documents/DND/hexgen",
-		"/C/Users/avonc/Documents/DND/hexgen/bin",
-		"/C/Users/avonc/Documents/DND/hexgen/build",
-		"/C/Users/avonc/Documents/DND/hexgen/build/lib",
 		"/C/Users/avonc/Documents/DND/hexgen/docs"
 	],
 	"file_history":
 	[
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/__init__.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/constants.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/util.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/hex.py",
+		"/C/Users/avonc/Documents/DND/hexgen/colorkey.html",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/edge.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/grid.py",
+		"/C/Users/avonc/Documents/DND/hexgen/bin/exportfile.json",
+		"/C/Users/avonc/Documents/DND/hexgen/build/lib/hexgen/grid.py",
+		"/C/Users/avonc/Documents/DND/hexgen/build/lib/hexgen/mapgen.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/mapgen.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/heightmap.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/projectfile.sublime-project",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/geoform.py",
+		"/C/Users/avonc/Documents/DND/hexgen/hexgen/colorkey.html",
 		"/C/Users/avonc/Documents/DND/hexgen/.gitignore",
 		"/C/Users/avonc/Documents/DND/hexgen/hexgen/draw.py",
 		"/C/Users/avonc/Documents/DND/hexgen/hexgen/pilfont.py",
 		"/C/Users/avonc/Documents/otf2bdf/freetype6.dll",
 		"/C/Users/avonc/Documents/otf2bdf/otf2bdf.exe",
-		"/C/Users/avonc/Documents/DND/hexgen/hexgen/heightmap.py",
 		"/C/Users/avonc/Documents/DND/hexgen/setup.py",
 		"/C/Users/avonc/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/ImageFile.py",
 		"/C/Users/avonc/Documents/DND/hexgen/build/lib/hexgen/draw.py",
-		"/C/Users/avonc/Documents/DND/hexgen/hexgen/__init__.py",
 		"/C/Users/avonc/Documents/DND/hexgen/example.py",
 		"/C/Users/avonc/Documents/DND/hexgen/bin/map_geoforms.png",
 		"/C/Users/avonc/Documents/DND/hexgen/bin/example.py",
@@ -272,11 +288,11 @@
 	],
 	"find":
 	{
-		"height": 80.0
+		"height": 46.0
 	},
 	"find_in_files":
 	{
-		"height": 208.0,
+		"height": 238.0,
 		"where_history":
 		[
 			""
@@ -287,6 +303,63 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"arrow",
+			"wind",
+			"hemis",
+			"wind",
+			"color_pressure_mid_year",
+			"setrecursionlimit",
+			"recursion",
+			"coast",
+			"river",
+			"key_zone",
+			"text_func",
+			"pressure",
+			"surface_pressure",
+			"terrain",
+			"print",
+			" west'",
+			" east'",
+			"'east'",
+			"'west'",
+			"]",
+			", (",
+			"in range",
+			"print",
+			"<",
+			"[",
+			", (",
+			"hex",
+			"(",
+			"[",
+			"print",
+			"map_surrounding",
+			"__key",
+			"key",
+			"max_size",
+			"x\": 23",
+			"f2a8188ecec44878b69167ec28c7b01d",
+			"\"x\": 23",
+			"geoforms",
+			"def bubble",
+			"surrounding",
+			"decide_slope",
+			"find_hex",
+			"hex_west",
+			"hexedge.west",
+			"ocean",
+			"2000",
+			"geoform",
+			"is_bay",
+			"geoformtype",
+			"islake",
+			"is_lake",
+			"lake",
+			"indent",
+			"lake",
+			"bay",
+			"lake",
+			"bay",
 			"bmp",
 			"hex_grid",
 			"geoform",
@@ -329,88 +402,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "__init__.py",
+					"file": "/C/Users/avonc/Documents/DND/hexgen/hexgen.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8790,
+						"buffer_size": 396,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2635,
-								2635
-							],
-							[
-								2729,
-								2729
-							],
-							[
-								2826,
-								2826
-							],
-							[
-								2919,
-								2919
-							],
-							[
-								3009,
-								3009
-							],
-							[
-								3119,
-								3119
-							],
-							[
-								3230,
-								3230
-							],
-							[
-								3318,
-								3318
-							],
-							[
-								3400,
-								3400
-							],
-							[
-								3510,
-								3510
-							],
-							[
-								3574,
-								3574
-							],
-							[
-								3628,
-								3628
-							],
-							[
-								3740,
-								3740
-							],
-							[
-								3855,
-								3855
-							],
-							[
-								3968,
-								3968
-							],
-							[
-								4073,
-								4073
-							],
-							[
-								4179,
-								4179
+								323,
+								323
 							]
 						],
 						"settings":
@@ -420,7 +429,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2280.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -428,19 +437,49 @@
 				},
 				{
 					"buffer": 1,
-					"file": "mapgen.py",
+					"file": "/C/Users/avonc/Documents/DND/hexgen/README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 43700,
+						"buffer_size": 3271,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31960,
-								31965
+								3270,
+								3270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1049.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "draw.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								883,
+								883
 							]
 						],
 						"settings":
@@ -450,47 +489,299 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 19543.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/C/Users/avonc/Documents/DND/hexgen/bin/exportfile.json",
+					"buffer": 3,
+					"file": "mapgen.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19545939,
+						"buffer_size": 45591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								298,
-								298
+								20568,
+								20568
+							],
+							[
+								20619,
+								20619
+							],
+							[
+								20676,
+								20676
+							],
+							[
+								20722,
+								20722
+							],
+							[
+								20771,
+								20771
+							],
+							[
+								20802,
+								20802
+							],
+							[
+								20860,
+								20860
+							],
+							[
+								20917,
+								20917
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 22198949.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/C/Users/avonc/Documents/DND/hexgen/bin/export3.json",
-					"semi_transient": true,
+					"buffer": 4,
+					"file": "geoform.py",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3616658,
+						"buffer_size": 1833,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								725,
+								734
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 178.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "util.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1614,
+								1614
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "hex.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29096,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4611,
+								4611
+							],
+							[
+								4627,
+								4627
+							],
+							[
+								4649,
+								4649
+							],
+							[
+								4663,
+								4663
+							],
+							[
+								4770,
+								4770
+							],
+							[
+								4847,
+								4847
+							],
+							[
+								4891,
+								4891
+							],
+							[
+								4897,
+								4897
+							],
+							[
+								4928,
+								4928
+							],
+							[
+								4973,
+								4973
+							],
+							[
+								5025,
+								5025
+							],
+							[
+								5056,
+								5056
+							],
+							[
+								5109,
+								5109
+							],
+							[
+								5153,
+								5153
+							],
+							[
+								5167,
+								5167
+							],
+							[
+								5235,
+								5235
+							],
+							[
+								5254,
+								5254
+							],
+							[
+								5306,
+								5306
+							],
+							[
+								5357,
+								5357
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2723.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "grid.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 144.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "enums.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6955,
+								6955
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3553.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Users/avonc/Documents/DND/hexgen/colorkey.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3987,
 						"regions":
 						{
 						},
@@ -503,208 +794,11 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "util.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9428,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8975,
-								8975
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5415.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "heightmap.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5230,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2903,
-								2903
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1477.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 908,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										331,
-										358
-									],
-									[
-										708,
-										735
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								723,
-								723
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 78.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "projectfile.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 84,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "enums.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11715,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4336,
-								4336
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2855.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "constants.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7119,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6122,
-								6122
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3080.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
@@ -762,12 +856,40 @@
 		"selected_items":
 		[
 			[
-				"util",
-				"hexgen\\util.py"
+				"readme",
+				"README.md"
+			],
+			[
+				"con",
+				"hexgen\\constants.py"
+			],
+			[
+				"hex",
+				"hexgen\\hex.py"
+			],
+			[
+				"consta",
+				"hexgen\\constants.py"
+			],
+			[
+				"grid",
+				"hexgen\\grid.py"
+			],
+			[
+				"geoform",
+				"hexgen\\geoform.py"
 			],
 			[
 				"draw",
 				"hexgen\\draw.py"
+			],
+			[
+				"edge",
+				"hexgen\\edge.py"
+			],
+			[
+				"util",
+				"hexgen\\util.py"
 			],
 			[
 				"heightmap",

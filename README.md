@@ -11,17 +11,12 @@ I'm using this as a board for a browser-based game I am working on. It can be us
 
 ## Installation
 
-This project requires the following:
+This iteration of the project was designed on the following:
 
-* [Python 3.5](https://www.python.org/downloads/release/python-350/)
-* [Pillow 2.8.2](http://pillow.readthedocs.io/en/3.2.x/installation.html)
+* Windows 10
+* Python 3.6
+* Other dependencies all successfully installed via pip: pillow, numpy, and simplejson
 
-It's recommended to use [virtualenv](https://pypi.python.org/pypi/virtualenv) and [virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/install.html) to keep the dependencies of this project separate from those that are installed globally on your system. With virtualenvwrapper, you can install this project with the following:
-
-    mkvirtualenv hexgen -p python3
-    pip install -r requirements.txt
-
-Tip: Installing Pillow through pip requires the python header files. You can install those on Debian/Ubuntu with `sudo apt-get install python3-dev`.
 
 To test your installation, run the unit tests:
 
@@ -30,6 +25,8 @@ To test your installation, run the unit tests:
 If everything is working, it should report back "OK".
 
 ## How to use
+
+Simply running the hexgen.py file found in the doc root will kick everything off. Said file also contains configuration parameters passed in for the run.
 
 ### Export types
 The primary export of Hexgen is a data structure that represents the world map. It can also export a bunch of png files that show various features on the map.
@@ -58,9 +55,11 @@ One interesting thing it can do is take all the data about a hexagon and determi
 - General parameters (required):
     - roughness (int, 0 - 10): used by the diamond-square algorithm to determine the roughness of the terrain.
     - axial_tilt (int, -90 - 90): This world's axial tilt. Has a huge impact on temperature variations.
-    - land_percent (int, 0 - 100): Percent of surface that is land
+    - sea_percent (int, 0 - 100): Percent of surface that is water
     - hydrosphere (bool): whether the world has surface hydrosphere
     - ocean_type (OceanType): composition of the ocean. Can be water, hydrocarbons, magma
+    - size (int): The width and height of the map to be generated
+    - num_rivers (int): The number of rivers to generate
 
 - Surface features (optional):
     - aquifer_max (int): maximum number of aquifers to place underground
@@ -76,7 +75,3 @@ One interesting thing it can do is take all the data about a hexagon and determi
     - merge_islands (bool): if True, unclaimed islands will be given to the nearest territory
     - merge_small (bool): if True, small territories will be merged with their neighbors
 
-- Exporting:
-    - export_type (string, one of "png", "json")
-    - png export:
-        - draw_borders: (bool): Draw borders between territories and on coastlines
